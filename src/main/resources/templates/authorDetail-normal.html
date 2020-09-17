@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>author-Detail</title>
+    <link href="/css/Statistic.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/echarts.js"></script>
+    <script src="/js/echarts.min_20200718.js"></script>
+    <!-- Bootstrap 核心 JavaScript 文件 -->
+    <script src="/js/bootstrap.js"></script>
+    <!-- 引入js脚本文件 -->
+    <script src="/js/request.js"></script>
+    <script src="/js/authorDetail-normal.js"></script>
+
+    <style>
+        .table tbody {
+            display: block;
+            height: 100%;
+            width: 100%;
+            overflow-y: scroll;
+            text-align: center;
+        }
+
+        .table thead, tbody tr {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+        }
+
+        .table thead {
+            background: #E4E8F3;
+            color: black;
+        }
+
+        .table thead tr th {
+            text-align: center;
+        }
+    </style>
+
+</head>
+<body>
+<table style="height: 100%">
+    <tr style="height: 15%;background-color: rgba(45,214,255,0.41);">
+        <td align="center" colspan="2" style="padding: 20px">
+            <div id="authorDetail-name" style="font-size: 250%;display: inline"></div>
+
+            <span style="font-size: 200%;display: inline;">&nbsp;&nbsp;&nbsp;(&nbsp;</span>
+            <a id="authorDetail-org" style="font-size: 150%;display: inline;"></a>
+            <span style="font-size: 200%;display: inline;">&nbsp;)</span>
+            <br>
+            <div style="font-size: 130%;display: inline;">总论文数:</div>
+            <div id="authorPaperNum" style="font-size: 130%;
+                display: inline;"></div>
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <div style="font-size: 130%;display: inline;">总被引用数:</div>
+            <div id="authorCitationSum" style="font-size: 130%;
+                display: inline;"></div>
+        </td>
+    </tr>
+    <tr style="height: 85%">
+        <td style="height: 100%;width: 15%;font-size: 130%;background-color: rgba(49,95,255,0.41);padding-left: 25px;padding-top: 0">
+            <br>
+            <div>
+                <a href="#" id="jump1" style="color: rgba(255,24,55,0.93)">作者论文</a>
+            </div>
+            <a href="#" id="authorDetail-statistics-section1" style="font-size: 80%;color: #000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;最高被引</a><br>
+            <a href="#" id="authorDetail-statistics-section2" style="font-size: 80%;color: #000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;发文统计</a><br>
+            <a href="#" id="authorDetail-statistics-section3" style="font-size: 80%;color: #000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;参加会议</a><br>
+            <br>
+
+            <div>
+                <a href="#" id="jump2" style="color: #000000">研究兴趣</a>
+            </div>
+            <a href="#" id="authorDetail-interest-section1" style="font-size: 80%;color: #000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;最近方向</a><br>
+            <a href="#" id="authorDetail-interest-section2" style="font-size: 80%;color: #000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;最新论文</a><br>
+            <a href="#" id="authorDetail-interest-section3" style="font-size: 80%;color: #000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关注领域</a><br>
+            <a href="#" id="authorDetail-interest-section4" style="font-size: 80%;color: #000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;兴趣趋势</a><br>
+            <br>
+            <div>
+                <a href="#" id="jump3" style="color: #000000">相关学者</a>
+            </div>
+            <a href="#" id="authorDetail-relation-section1" style="font-size: 80%;color: #000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;同机构合作者</a><br>
+            <a href="#" id="authorDetail-relation-section2" style="font-size: 80%;color: #000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;其他机构合作者</a><br>
+            <br>
+            <div>
+                <a href="#" id="jump4" style="color: #000000">学术排名</a>
+            </div>
+            <a href="#" id="authorDetail-rank-section1" style="font-size: 80%;color: #000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;同机构作者中排名</a><br>
+            <a href="#" id="authorDetail-rank-section2" style="font-size: 80%;color: #000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;所有作者中排名</a><br>
+            <br><br>
+        </td>
+
+        <td style="width: 85%;">
+<!--
+            <table style="text-align: left">
+                <thead>
+                <tr  style="width: 100% border-box">
+                </tr>
+                </thead>
+
+                <div style="overflow-y:scroll">
+                    <tbody id="authorDetail-statistics-content" >
+                </div>
+
+            </table>
+-->
+
+            <iframe id="myFrame" src="/view/author-detail-statistics" width="100%" height="100%" scrolling="yes" style="background-color: rgba(255,249,40,0.11)">
+            </iframe>
+
+        </td>
+    </tr>
+</table>
+</body>
+</html>

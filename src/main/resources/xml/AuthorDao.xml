@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.studysystem.dao.AuthorDao">
+    <resultMap id="BaseResultMap" type="com.example.studysystem.entity.Author">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <id column="Author_name" property="Author_name" jdbcType="VARCHAR"/>
+        <id column="Org" property="Org" jdbcType="VARCHAR"/>
+        <id column="Paper_list" property="Paper_list" jdbcType="LONGVARCHAR"/>
+        <id column="Paper_num" property="Paper_num" jdbcType="INTEGER"/>
+        <id column="Citation_sum" property="Citation_sum" jdbcType="INTEGER"/>
+        <id column="Point" property="Point" jdbcType="FLOAT"/>
+    </resultMap>
+    <resultMap id="BaseResultMap2" type="com.example.studysystem.entity.History">
+        <id column="year" property="year" jdbcType="VARCHAR"/>
+        <id column="num" property="num" jdbcType="INTEGER"/>
+    </resultMap>
+    <resultMap id="BaseResultMap3" type="com.example.studysystem.entity.SimpleAuthor">
+        <id column="Author_name" property="Author_name" jdbcType="VARCHAR"/>
+        <id column="Org" property="Org" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id,
+    Author_name,
+    Org,
+    Paper_list,
+    Paper_num,
+    Citation_sum,
+    Point
+    </sql>
+
+
+    <select id="getAuthors" resultType="Author">
+        SELECT * FROM author order by Paper_num desc
+    </select>
+
+    <select id="getAuthorsByOrg" resultType="Author">
+        SELECT * FROM author where Org=#{org} order by Paper_num desc
+    </select>
+
+    <select id="getAuthorById" resultType="Author">
+        SELECT * FROM author where id=#{id}
+    </select>
+
+    <select id="getIdByAuthorAndOrg" resultType="java.lang.Integer">
+        SELECT id FROM author where Author_name=#{Author} and Org=#{Org}
+    </select>
+
+    <select id="getAuthorByPaperId" resultType="Author" parameterType="java.util.List">
+        select * from docs.author where id in(
+        SELECT a.id FROM docs.author a,docs.simplepaper sp
+        where a.Author_name=sp.Authors and a.Org=sp.Author_Affiliations and sp.paper_id in
+        <foreach collection="list" index="index" item="item" open="("
+                 separator="," close=")">
+            #{item}
+        </foreach>
+        )
+
+    </select>
+
+
+    <select id="searchAuthors_name" resultType="Author">
+        <bind name="pattern" value="'%' + name + '%'"/>
+        SELECT * FROM author where upper(Author_name) like upper(#{pattern})
+    </select>
+
+    <select id="searchAuthors_org" resultType="Author">
+        <bind name="pattern" value="'%' + org + '%'"/>
+        SELECT * FROM author where upper(Org) like upper(#{pattern})
+    </select>
+
+    <select id="searchAuthors_paperNum" resultType="Author">
+        SELECT * FROM author where paper_num >= #{paperNum}
+    </select>
+
+    <select id="searchAuthors_citationSum" resultType="Author">
+        SELECT * FROM author where Citation_sum >= #{citationSum}
+    </select>
+
+    <select id="getPaperIdByAuthor" resultType="java.lang.String">
+        SELECT Paper_list FROM author where id = #{id}
+    </select>
+
+
+    <select id="getKeywords" resultType="java.lang.String">
+        SELECT distinct lower(Author_Keywords) FROM simplepaper where Authors in (
+            SELECT Author_name from author where id=#{id}
+        )
+    </select>
+
+    <select id="getTitles" resultType="java.lang.String">
+        SELECT distinct lower(Document_title) FROM simplepaper where Authors in(
+            SELECT Author_name from docs.author where id=#{id}
+        ) and Author_Affiliations in (
+			select Org from docs.author where id=#{id}
+        )
+    </select>
+
+    <select id="getTopAuthor_byName" resultType="Author" parameterType="java.util.List">
+        select * from author
+        where Author_name in
+        <foreach collection="list" index="index" item="item" open="("
+                 separator="," close=")">
+            #{item}
+        </foreach>
+        order by Point desc limit 5
+    </select>
+
+    <select id="getTopAuthor_byId" resultType="Author" parameterType="java.util.List">
+        select * from author
+        where id in
+        <foreach collection="list" index="index" item="item" open="("
+                 separator="," close=")">
+            #{item}
+        </foreach>
+        order by Point desc limit 5
+    </select>
+
+    <select id="getTopAuthor_paperNum" resultType="Author">
+        SELECT * FROM author order by Paper_num desc limit 10
+    </select>
+
+    <select id="getTopAuthor_citationSum" resultType="Author">
+        SELECT * FROM author order by Citation_sum desc limit 10
+    </select>
+
+    <select id="getTopAuthor_point" resultType="Author">
+        SELECT * FROM author order by Point desc limit 10
+    </select>
+
+    <select id="getTop20AuthorByPaperId" resultType="SimpleAuthor" parameterType="java.util.List">
+        select * from docs.author where id in
+            (SELECT a.id FROM docs.author a,docs.simplepaper sp
+                where a.Author_name=sp.Authors and a.Org=sp.Author_Affiliations and sp.paper_id in
+                    <foreach collection="list" index="index" item="item" open="("
+                             separator="," close=")">
+                        #{item}
+                    </foreach>
+                )order by Paper_num desc limit 20
+    </select>
+
+
+    <select id="getRelatedAuthor_byPaperId" resultType="Author" parameterType="java.util.List">
+        select * from author where id in(
+        select distinct a.id from docs.author a,docs.simplepaper s
+        where a.Author_name=s.Authors and a.Org =s.Author_Affiliations and s.paper_id in
+        <foreach collection="list" index="index" item="item" open="("
+                 separator="," close=")">#{item}
+        </foreach>
+        order by a.Paper_num desc
+        )
+    </select>
+
+    <select id="getRelatedAuthor_byOrgId" resultType="java.lang.String">
+        select Authors from(
+            select Authors,count(paper_id) as num from(
+                select  distinct s1.Authors,s1.paper_id from simplepaper s1,simplepaper s2 where(
+                    s1.paper_id=s2.paper_id and s2.Author_Affiliations in(
+                        select Org_name from org where id=#{id}
+                    )
+                )
+            ) u group by Authors order by num desc
+		) v
+    </select>
+
+    <select id="getHistory" resultType="History">
+        SELECT Publication_Year as year,count( distinct paper_id)as num FROM docs.simplepaper  where Authors in(
+            SELECT Author_name from docs.author where id=#{id}
+        ) and Author_Affiliations in (
+			select org from docs.author where id=#{id}
+        )
+        group by Publication_Year;
+    </select>
+
+    <select id="getSimpleAuthorByPaperId" resultType="SimpleAuthor" parameterType="java.util.List">
+        select Authors as Author_name,Author_Affiliations as Org from simplepaper
+        where paper_id in
+        <foreach collection="list" index="index" item="item" open="("
+                 separator="," close=")">
+            #{item}
+        </foreach>
+
+    </select>
+
+    <select id="getAuthors_concat_name_org" resultType="Author" parameterType="java.util.List">
+        SELECT * FROM author where CONCAT(Author_name,Org) in
+        <foreach collection="list" index="index" item="item" open="("
+                 separator="," close=")">
+            #{item}
+        </foreach>
+        order by Paper_num desc
+    </select>
+
+</mapper>

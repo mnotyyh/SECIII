@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>manage</title>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css"/>
+    <script src="/js/jquery.js"></script>
+    <!-- Bootstrap 核心 JavaScript 文件 -->
+    <script src="/js/bootstrap.js"></script>
+    <!-- 引入js脚本文件 -->
+    <script src="/js/request.js"></script>
+    <script src="/js/manage.js"></script>
+    <style>
+        input::-webkit-input-placeholder {
+            /* placeholder颜色  */
+            color: rgba(255, 5, 14, 0.54);
+            /* placeholder字体大小  */
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+<div align="center">
+
+    <div style=" background-color: #b10d12;font-size: 22px;float:left;width: 16.6%;height: 40px;text-align: center">
+        <a href="#" style="color: #fefff4;font-size: 140%">管理本地文件</a>
+    </div>
+    <div style=" background-color: #b1671f; font-size: 22px;  float:left;width: 16.6%;height: 40px;text-align: center">
+        <a href="/view/onlinePython" style="color: #000">在线爬虫下载</a>
+    </div>
+    <div style=" background-color: #abb123;font-size: 22px;float:left;width: 16.6%;height: 40px;text-align: center">
+        <a href="#" style="color: #000"></a>
+    </div>
+    <div style=" background-color: #6e76b1;font-size: 22px;float:left;width: 16.6%;height: 40px;text-align: center">
+        <a href="#" style="color: #000"></a>
+    </div>
+    <div style=" background-color: #339db1;font-size: 22px;float:left;width: 16.6%;height: 40px;text-align: center">
+        <a href="#" style="color: #000"></a>
+    </div>
+    <div style=" background-color: #5db12f;font-size: 22px;float:left;width:17%;height: 40px;text-align: center">
+        <a href="#" style="color: #000"></a>
+    </div>
+    <br>
+
+
+    <br>
+    <hr>
+    <div>新增数据库文件(csv格式)
+        <input type="file" id="newFile" width="30%" style="display: inline;">
+        <button class="myBtn" id="uploadFile" style='background-color: #3ba6af;
+            border: 2px solid #4CAF50;
+            color: white;
+            padding: 7px 15px;
+            text-align: center;
+            border-radius: 6px;
+            text-decoration: none;
+            display: inline-block;
+            font-size:13px;'>
+            上传文件
+        </button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button id="updateDB" type='button' style='background-color: #4CAF50;
+            border: 2px solid #4CAF50;
+            color: white;
+            padding: 7px 15px;
+            text-align: center;
+            border-radius: 6px;
+            text-decoration: none;
+            display: inline-block;
+            font-size:13px;'>更新数据库
+        </button>
+    </div>
+
+
+    <br><br>
+
+    <table class="table" style="border: #1c196e;width: 40%;text-align: right">
+        <thead>
+
+        <th style="width: 100%;text-align:right;">
+            <span style="font-size: 120%;color: #ff2e1d">已有数据文件</span>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span>全选</span>
+            <input type="checkbox" id="fileAll">
+        </th>
+
+        </thead>
+        <div style="overflow-y:scroll">
+            <tbody id="file-list" style="border: #8ae292">
+        </div>
+    </table>
+</div>
+</body>
+</html>

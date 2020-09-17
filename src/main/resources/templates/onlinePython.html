@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>onlinePython</title>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css"/>
+    <script src="/js/jquery.js"></script>
+    <!-- Bootstrap 核心 JavaScript 文件 -->
+    <script src="/js/bootstrap.js"></script>
+    <!-- 引入js脚本文件 -->
+    <script src="/js/request.js"></script>
+    <script src="/js/onlinePython.js"></script>
+    <style>
+        input::-webkit-input-placeholder {
+            /* placeholder颜色  */
+            color: rgba(255, 5, 14, 0.54);
+            /* placeholder字体大小  */
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<div align="center">
+
+    <div style=" background-color: #b10d12;font-size: 22px;float:left;width: 16.6%;height: 40px;text-align: center">
+        <a href="/view/manage" style="color: #000000">管理本地文件</a>
+    </div>
+    <div style=" background-color: #b1671f; font-size: 22px;  float:left;width: 16.6%;height: 40px;text-align: center">
+        <a href="#" style="color: #fefff4;font-size: 140%">在线爬虫下载</a>
+    </div>
+    <div style=" background-color: #abb123;font-size: 22px;float:left;width: 16.6%;height: 40px;text-align: center">
+        <a href="#" style="color: #000"></a>
+    </div>
+    <div style=" background-color: #6e76b1;font-size: 22px;float:left;width: 16.6%;height: 40px;text-align: center">
+        <a href="#" style="color: #000"></a>
+    </div>
+    <div style=" background-color: #339db1;font-size: 22px;float:left;width: 16.6%;height: 40px;text-align: center">
+        <a href="#" style="color: #000"></a>
+    </div>
+    <div style=" background-color: #5db12f;font-size: 22px;float:left;width:17%;height: 40px;text-align: center">
+        <a href="#" style="color: #000"></a>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br>
+
+
+    <input id="online-input" type="text" placeholder="你想在线下载关于什么的论文？越具体越好" style="width: 500px">
+    <span>选择数据源头</span>
+    <select id="online-select">
+        <option value="1">ACM</option>
+        <option value="2">IEEE</option>
+    </select>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <button id="online-download" type='button' style='background-color: #4CAF50;
+            border: 2px solid #4CAF50;
+            color: white;
+            padding: 7px 15px;
+            text-align: center;
+            border-radius: 6px;
+            text-decoration: none;
+            display: inline-block;
+            font-size:13px;'>在线下载csv文件
+    </button>
+</div>
+</body>
+</html>

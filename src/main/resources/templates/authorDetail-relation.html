@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/echarts.js"></script>
+    <script src="/js/echarts.min.js"></script>
+
+    <!-- Bootstrap 核心 JavaScript 文件 -->
+    <script src="/js/bootstrap.js"></script>
+    <!-- 引入js脚本文件 -->
+    <script src="/js/request.js"></script>
+    <script src="/js/authorDetail-relation.js"></script>
+
+
+
+</head>
+<body style="background-color: rgba(255,249,209,0.12)">
+
+
+<div id="authorDetail-relation-part1">
+    <span style="text-align: left;font-size: 120%">相关学者</span> &nbsp;&nbsp;&nbsp;
+    <span style="font-size: 80%">(发文量前20的主要相关学者)</span><br><br>
+    <span style="text-align: left;color: rgba(255,24,55,0.89);">同机构主要合作者</span>
+    <span id="author-sameOrgNum" style="text-align: right;color: rgba(255,24,55,0.89);float: right"></span>
+    <span style="text-align: right;color: rgba(255,24,55,0.89);float: right">同机构总合作者数：</span>
+    <div id="author-sameOrg" style="font-size: 85% ;height:500px;padding-right: 100px"></div>
+    <br>
+</div>
+
+<div id="authorDetail-relation-part2">
+
+    <span style="text-align: left;color: rgba(255,24,55,0.89);">其他机构主要合作者</span>
+    <span id="author-difOrgNum" style="text-align: right;color: rgba(255,24,55,0.89);float: right"></span>
+    <span style="text-align: right;color: rgba(255,24,55,0.89);float: right">其他机构总合作者数：</span>
+    <div id="author-difOrg" style="font-size: 85%;height:500px;padding-right: 100px"></div>
+    <br><br>
+</div>
+
+</body>
+</html>

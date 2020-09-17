@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>论文详情</title>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css"/>
+    <script src="/js/jquery.js"></script>
+    <!-- Bootstrap 核心 JavaScript 文件 -->
+    <script src="/js/bootstrap.js"></script>
+    <!-- 引入js脚本文件 -->
+    <script src="/js/request.js"></script>
+    <script src="/js/paperDetail.js"></script>
+    <style type="text/css">
+        /* Custom Styles */
+        ul.nav-tabs {
+            width: 200px;
+            margin-top: 20px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);
+        }
+
+        ul.nav-tabs li {
+            margin: 0;
+            border-top: 1px solid #ddd;
+        }
+
+        ul.nav-tabs li:first-child {
+            border-top: none;
+        }
+
+        ul.nav-tabs li a {
+            margin: 0;
+            padding: 8px 16px;
+            border-radius: 0;
+        }
+
+        ul.nav-tabs li.active a,
+        ul.nav-tabs li.active a:hover {
+            color: #fff;
+            background: #0088cc;
+            border: 1px solid #0088cc;
+        }
+
+        ul.nav-tabs li:first-child a {
+            border-radius: 4px 4px 0 0;
+        }
+
+        ul.nav-tabs li:last-child a {
+            border-radius: 0 0 4px 4px;
+        }
+
+        ul.nav-tabs.affix {
+            top: 30px;
+            /* Set the top position of pinned element */
+        }
+
+        .jumbotron {
+            background: #afe6b8;
+        }
+        .panel-info .panel-heading{
+            color: black !important;
+            background-color: #afe6b8 !important;
+            border-color: #bce8f1;
+        }
+    </style>
+</head>
+<body data-spy="scroll" data-target="#myScrollspy">
+<div class="container">
+    <div class="jumbotron">
+        <h2>标题：</h2>
+        <h2 id="document_title"></h2>
+    </div>
+    <div class="row">
+        <div class="col-xs-3" id="myScrollspy">
+            <ul class="nav nav-tabs nav-stacked" id="myNav">
+                <li><a href="/view/home"><strong>返回主页</strong></a></li>
+                <li><a href="#作者"><strong>作者</strong></a></li>
+                <li><a href="#作者单位"><strong>作者单位</strong></a></li>
+                <li><a href="#发布会议"><strong>发布会议</strong></a></li>
+                <li><a href="#发布时间"><strong>发布时间</strong></a></li>
+                <li><a href="#关键字"><strong>关键字</strong></a></li>
+                <li><a href="#开始页数-结束页数"><strong>开始页数-结束页数</strong></a></li>
+                <li><a href="#PDF链接"><strong>PDF链接</strong></a></li>
+                <li><a href="#DOI标识"><strong>DOI标识</strong></a></li>
+                <li><a href="#参考数量"><strong>参考数量</strong></a></li>
+                <li><a href="#发布方"><strong>发布方</strong></a></li>
+                <li><a href="#文件标识符"><strong>文件标识符</strong></a></li>
+                <li><a href="#摘要"><strong>摘要</strong></a></li>
+            </ul>
+        </div>
+        <div class="col-xs-9">
+            <hr>
+            <div class="panel panel-info" id="作者">
+                <div class="panel-heading">
+                    <h3 >作者         </h3>
+                </div>
+                <div class="panel-body">
+                    <a id="authors"> 未知 </a>
+                </div>
+            </div>
+
+            <hr>
+            <div class="panel panel-info" id="作者单位">
+                <div class="panel-heading">
+                    <h3>作者单位        </h3>
+                </div>
+                <div class="panel-body">
+                    <p id="author_Affiliations"> 未知 </p>
+                </div>
+            </div>
+
+
+            <hr>
+            <div class="panel panel-info" id="发布会议">
+                <div class="panel-heading">
+                    <h3>发布会议     </h3>
+                </div>
+                <div class="panel-body">
+                    <p id="publication_Title"> 未知 </p>
+                </div>
+            </div>
+
+            <hr>
+            <div class="panel panel-info" id="发布时间">
+                <div class="panel-heading">
+                    <h3>发布时间 </h3>
+                </div>
+                <div class="panel-body">
+                    <p id="publication_Year"> 未知 </p>
+                </div>
+            </div>
+
+            <hr>
+            <div class="panel panel-info" id="关键字">
+                <div class="panel-heading">
+                    <h3>关键字       </h3>
+                </div>
+                <div class="panel-body">
+                    <p id="author_Keywords"> 未知 </p>
+                </div>
+            </div>
+
+
+
+            <hr>
+            <div class="panel panel-info" id="开始页数-结束页数">
+                <div class="panel-heading">
+                    <h3>开始页数 - 结束页数        </h3>
+                </div>
+                <div class="panel-body">
+                    <p id="start_Page"></p>
+                    <p>~</p>
+                    <p id="end_Page"></p>
+                </div>
+            </div>
+
+            <hr>
+            <div class="panel panel-info" id="PDF链接">
+                <div class="panel-heading">
+                    <h3>PDF链接      </h3>
+                </div>
+                <div class="panel-body">
+                    <a id='pdf_L' target=\"_blank\"></a>
+                </div>
+            </div>
+
+            <hr>
+            <div class="panel panel-info" id="DOI标识">
+                <div class="panel-heading">
+                    <h3>DOI标识    </h3>
+                </div>
+                <div class="panel-body">
+                    <p id="doi"> 未知 </p>
+                </div>
+            </div>
+
+            <hr>
+            <div class="panel panel-info" id="参考数量">
+                <div class="panel-heading">
+                    <h3>参考数量        </h3>
+                </div>
+                <div class="panel-body">
+                    <p id="reference_Count"> 未知 </p>
+                </div>
+            </div>
+
+            <hr>
+            <div class="panel panel-info" id="发布方">
+                <div class="panel-heading">
+                    <h3>发布方        </h3>
+                </div>
+                <div class="panel-body">
+                    <p id="publisher"> 未知 </p>
+                </div>
+            </div>
+
+            <hr>
+            <div class="panel panel-info" id="文件标识符">
+                <div class="panel-heading">
+                    <h3>文件标识符        </h3>
+                </div>
+                <div class="panel-body">
+                    <p id="document_Identifier"> 未知 </p>
+                </div>
+            </div>
+
+            <hr>
+            <div class="panel panel-info" id="摘要">
+                <div class="panel-heading">
+                    <h3>摘要         </h3>
+                </div>
+                <div class="panel-body">
+                    <p id="abstract"> 未知 </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#myNav").affix({
+                offset: {
+                    top: 125
+                }
+            });
+        });
+    </script>
+</div>
+<!--<div align="center">-->
+<!--    <table class="table" align="center" border="1px" style="border: #152067">-->
+<!--        <thead>-->
+<!--        <tr align="center" style="width: 100% border-box" >-->
+<!--        </tr>-->
+<!--        </thead>-->
+<!--        <tbody id="paper-detail" style="border: #8ae292">-->
+
+<!--    </table>-->
+
+<!--</div>-->
+
+</body>
+
+
+</html>

@@ -1,0 +1,106 @@
+#popLayer {
+    display: none;
+    background-color: #B3B3B3;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    -moz-opacity: 0.8;
+    opacity:.80;
+    filter: alpha(opacity=80);/* 只支持IE6、7、8、9 */
+}
+
+/*弹出层*/
+#popBox {
+    display: none;
+    background-color: #FFFFFF;
+    z-index: 11;
+    width: 200px;
+    height: 200px;
+    position:fixed;
+    top:0;
+    right:0;
+    left:0;
+    bottom:0;
+    margin:auto;
+}
+
+#popBox .close{
+    text-align: right;
+    margin-right: 5px;
+    background-color: #F8F8F8;
+}
+
+/*关闭按钮*/
+#popBox .close a {
+    text-decoration: none;
+    color: #2D2C3B;
+}
+
+.box{
+    width: 100px;
+   height: 30px;
+}
+.bench{
+    background-color: #20b750;
+    width: 15%;
+    height: 40px;
+    text-align: center;
+}
+.director{
+    background-color: #178b24;
+    width: 120px;
+    height: 40px;
+}
+
+.container{
+    border:1px  solid #1012ff;
+    color: blueviolet;
+
+    width: 20%;
+    text-align: center;
+    opacity: 0.5;
+    border-collapse: collapse;
+}
+.smallcontainer{
+    border:1px  solid #1012ff;
+    color: blueviolet;
+
+    width: 10px;
+    text-align: center;
+    opacity: 0.5;
+    border-collapse: collapse;
+}
+/* 遮盖层 */
+.box-mask{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,.5);
+    display: none;
+}
+/* 模态框 */
+.box-modal{
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -150px;
+    margin-top: -75px;
+    width: 400px;
+    height: 400px;
+    text-align: center;
+    line-height: 150px;
+    background: #fff;
+    border-radius: 4px;
+}
+.box-modal span{
+    font-size: 16px;
+    position: absolute;
+    right: 10px;
+    top: -55px;
+}

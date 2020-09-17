@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/echarts.js"></script>
+    <script src="/js/echarts.min_20200718.js"></script>
+    <!-- Bootstrap 核心 JavaScript 文件 -->
+    <script src="/js/bootstrap.js"></script>
+    <!-- 引入js脚本文件 -->
+    <script src="/js/request.js"></script>
+    <script src="/js/authorDetail-rank.js"></script>
+
+
+
+</head>
+<body style="background-color: rgba(255,249,209,0.12)">
+<div id="authorDetail-rank-part1">
+    <span style="text-align: left;font-size: 120%">学术排名</span> &nbsp;&nbsp;&nbsp;
+    <br>
+    <p style="text-align: left;color: rgba(255,24,55,0.89);display: inline-block;width: 30%">同机构作者中排名</p>
+    <p style="text-align: right;color: rgba(255,24,55,0.89);display: inline-block">论文数排名：</p>
+    <p id="author-rank-sameOrg-paper" style="text-align: right;color: rgba(255,24,55,0.89);display: inline-block;"></p>
+    <p style="text-align: right;color: rgba(255,24,55,0.89);display: inline-block;width: 15%">被引用数排名：</p>
+    <p id="author-rank-sameOrg-citation" style="text-align: right;color: rgba(255,24,55,0.89);display: inline-block"></p><br>
+    <div id="author-rank-sameOrg" style="font-size: 85%;height: 400px"></div>
+    <br>
+</div>
+
+<div id="authorDetail-rank-part2">
+    <p style="text-align: left;color: rgba(255,24,55,0.89);display: inline-block;width: 30%">所有作者中排名</p>
+    <p style="text-align: right;color: rgba(255,24,55,0.89);display: inline-block">论文数排名：</p>
+    <p id="author-rank-difOrg-paper" style="text-align: right;color: rgba(255,24,55,0.89);display: inline-block;"></p>
+    <p style="text-align: right;color: rgba(255,24,55,0.89);display: inline-block;width: 15%">被引用数排名：</p>
+    <p id="author-rank-difOrg-citation" style="text-align: right;color: rgba(255,24,55,0.89);display: inline-block"></p><br>
+    <div id="author-rank-difOrg" style="font-size: 85%;height: 400px"></div>
+    <br>
+</div>
+
+
+
+
+</body>
+</html>

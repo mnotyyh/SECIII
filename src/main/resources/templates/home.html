@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>主页</title>
+    <link rel="stylesheet" type="text/css" href="/css/index.css"/>
+    <script src="/js/jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css"/>
+    <!-- Bootstrap 核心 JavaScript 文件 -->
+    <script src="/js/bootstrap.js"></script>
+    <!-- 引入js脚本文件 -->
+    <script src="/js/request.js"></script>
+    <script src="/js/home.js"></script>
+
+    <style>
+
+        *{padding: 0;margin: 0;}
+        .box{width: 100%;height: 100%;}
+        .main{width: 100%;height: 100%;background-color: rgba(0,0,0,0.8);display: none;position: fixed;z-index: 1;}
+        .mainbox{width: 800px;height: 100%;margin: 0 auto;background-color: rgba(255,255,255,0.8);padding: 20px;}
+        .kkk{width: 100%;height: 1200px;background-color: red;}
+        .close{color: red;cursor: pointer;}
+
+        input::-webkit-input-placeholder {
+            width:99%;height:99%;border-top:0px;border-left:0px;border-right:0px;border-bottom:0px;
+            /* placeholder颜色  */
+            color: rgba(255, 5, 14, 0.54);
+            /* placeholder字体大小  */
+            font-size: 16px;
+        }
+
+        .table  tbody {
+            display:block;
+            height:450px;
+            width:100%;
+            overflow-y:scroll;
+            text-align: center;
+        }
+
+        .table  thead, tbody tr {
+            display:table;
+            width:100%;
+            table-layout:fixed;
+        }
+
+        .table  thead {
+            background: #E4E8F3;
+            color: black;
+        }
+        .table thead tr th{
+            text-align: center;
+        }
+    </style>
+
+</head>
+<body>
+<div align="center">
+    <div class="headers" style="width: 100%">
+        <div style=" background-color: #b10d12;font-size: 22px;float:left;width: 16.6%;height: 50px;line-height: 50px;text-align: center">
+            <a href="/view/home" style="color: #fefff4;;font-size: 170%">论文</a>
+        </div>
+        <div  style=" background-color: #b1671f; font-size: 22px;  float:left;width: 16.6%;height: 50px;line-height: 50px;text-align: center">
+            <a href="/view/author" style="color: #000;">作者</a>
+        </div>
+        <div style=" background-color: #abb123;font-size: 22px;float:left;width: 16.6%;height: 50px;line-height: 50px;text-align: center">
+            <a href="/view/org" style="color: #000">机构</a>
+        </div>
+        <div style=" background-color: #6e76b1;font-size: 22px;float:left;width: 16.6%;height: 50px;line-height: 50px;text-align: center">
+            <a href="/view/field" style="color: #000">研究方向</a>
+        </div>
+        <div style=" background-color: #339db1;font-size: 22px;float:left;width: 16.6%;height: 50px;line-height: 50px;text-align: center">
+            <a href="/view/meeting"style="color: #000">会议</a>
+        </div>
+        <div style=" background-color: #5db12f;font-size: 22px;float:left;width:17%;height: 50px;line-height: 50px;text-align: center">
+            <a href="#" style="color: #000"></a>
+        </div>
+    </div>
+<br>
+
+    <hr>
+
+<div class="paper">
+<table class="table" align="center" border="1px" style="border: #152067" >
+    <thead>
+    <tr align="center" style="width: 100% border-box; height: 50px" >
+
+        <th width="25%" >
+            <input id="index_0" type="text" placeholder="Document_title" style="width: 100%;height: 27px;  background-color:transparent;border:0">
+        </th>
+        <th width="10%">
+            <input id="index_1" type="text" placeholder="Authors" style="width: 99%;height: 27px; background-color:transparent;border:0">
+        </th>
+        <th width="4%">
+            <input id="index_2" type="text"  placeholder="Year" style="width: 99%;height: 27px; background-color:transparent;border:0" >
+        </th>
+        <th width="17%">
+            <input id="index_3" type="text"  placeholder="Author_Affiliations" style="width: 99%;height: 27px; background-color:transparent;border:0" >
+        </th>
+        <th width="15%">
+            <input id="index_4" type="text"  placeholder="Publication_Title" style="width: 99%;height: 27px; background-color:transparent;border:0" >
+        </th>
+        <th width="24%">
+            <input id="index_5" type="text"  placeholder="Author_Keywords" style="width: 99%;height: 27px; background-color:transparent;border:0">
+        </th>
+        <th >
+            <button id="paper-search" type='button' style=" height: 32px; background-color: #cbff64;border: 2px solid #2994af;color: #2616ff;
+               padding: 0px 3px;text-align: center;border-radius: 6px;text-decoration: none;display: inline-block;
+                font-size:17px">搜索</button>
+        </th>
+
+    </tr>
+    </thead>
+
+            <tbody id="paper-list" style="border: #8ae292">
+
+
+</table>
+
+</div>
+
+</div>
+</body>
+</html>

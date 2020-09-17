@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.studysystem.dao.FieldDao" >
+    <resultMap id="BaseResultMap" type="com.example.studysystem.entity.Field" >
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <id column="Field_name" property="Field_name" jdbcType="LONGVARCHAR" />
+        <id column="Paper_list" property="Paper_list" jdbcType="LONGVARCHAR" />
+        <id column="Paper_num" property="Paper_num" jdbcType="INTEGER" />
+        <id column="Citation_sum" property="Citation_sum" jdbcType="INTEGER" />
+        <id column="Point" property="Point" jdbcType="FLOAT" />
+    </resultMap>
+    <resultMap id="BaseResultMap2" type="com.example.studysystem.entity.History">
+        <id column="year" property="year" jdbcType="VARCHAR"/>
+        <id column="num" property="num" jdbcType="INTEGER"/>
+    </resultMap>
+    <sql id="Base_Column_List" >
+    id,
+    Field_name,
+    Paper_list,
+    Paper_num,
+    Citation_sum,
+    Point
+    </sql>
+
+
+    <select id="getFields"  resultType="Field">
+        SELECT * FROM field order by Paper_num desc
+    </select>
+
+    <select id="getIdByName"  resultType="java.lang.Integer">
+        SELECT id FROM field where upper(Field_name)=upper(#{name})
+    </select>
+
+    <select id="getFieldById"  resultType="Field">
+        SELECT * FROM field where id=#{id}
+    </select>
+
+    <select id="getPaperId"  resultType="java.lang.String">
+        SELECT Paper_list FROM field where id=#{id}
+    </select>
+
+
+
+    <select id="getOrgId"  resultType="java.lang.Integer" parameterType="java.util.List">
+        select o.id from org o,simplepaper s where o.Org_name=s.Author_Affiliations
+        and s.paper_id in
+        <foreach collection="list" index="index" item="item" open="("
+                 separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
+
+
+
+    <select id="getTopField_paperNum"  resultType="Field" >
+        SELECT * FROM field order by Paper_num desc limit 20
+    </select>
+
+    <select id="getTopField_citationSum"  resultType="Field" >
+        SELECT * FROM field order by Citation_sum desc limit 20
+    </select>
+
+    <select id="getTopField_point"  resultType="Field" >
+        SELECT * FROM field order by Point desc limit 20
+    </select>
+
+
+
+</mapper>

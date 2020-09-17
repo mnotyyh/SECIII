@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.studysystem.dao.SimplePaperDao" >
+    <resultMap id="BaseResultMap" type="com.example.studysystem.entity.SimplePaper" >
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <id column="paper_id" property="paper_id" jdbcType="INTEGER" />
+        <id column="Document_title" property="Document_title" jdbcType="LONGVARCHAR" />
+        <id column="Authors" property="Authors" jdbcType="LONGVARCHAR" />
+        <id column="Author_Affiliations" property="Author_Affiliations" jdbcType="LONGVARCHAR" />
+        <id column="Publication_Title" property="Publication_Title" jdbcType="LONGVARCHAR" />
+        <id column="Author_Keywords" property="Author_Keywords" jdbcType="LONGVARCHAR" />
+    </resultMap>
+    <sql id="Base_Column_List" >
+    id,
+    paper_id,
+    Document_title,
+    Authors,
+    Author_Affliations,
+    Publication_Title,
+    Author_Keywords,
+    Article_Citation_Count
+    </sql>
+
+
+    <select id="getSimplePapers"  resultType="SimplePaper">
+        SELECT * FROM simplepaper
+    </select>
+
+    <select id="getSimplePaperByOrg"  resultType="SimplePaper" parameterType="java.lang.String">
+        SELECT * FROM simplepaper where Author_Affiliations=#{name} GROUP BY paper_id
+    </select>
+
+    <select id="getSimplePaperByAuthor_Org"  resultType="SimplePaper" parameterType="java.lang.String">
+        SELECT * FROM simplepaper where Authors=#{name} and Author_Affiliations=#{org}
+    </select>
+
+    <select id="getSimplePapersByIds"  resultType="SimplePaper" parameterType="java.util.List">
+        select * from simplepaper
+        where paper_id in
+        <foreach collection="list" index="index" item="item" open="("
+                 separator="," close=")">
+            #{item}
+        </foreach>
+        group by paper_id
+    </select>
+
+
+
+    <select id="simpleSelect_title" resultType="java.lang.Integer" parameterType="java.lang.String">
+        <bind name="pattern" value="'%' + name + '%'" />
+        select distinct paper_id from simplepaper where upper(Document_title) like upper(#{pattern})
+    </select>
+
+    <select id="simpleSelect_author" resultType="java.lang.Integer" parameterType="java.lang.String">
+        <bind name="pattern" value="'%' + name + '%'" />
+        select distinct paper_id from simplepaper where upper(Authors) like upper(#{pattern})
+    </select>
+
+    <select id="simpleSelect_year" resultType="java.lang.Integer" parameterType="java.lang.String">
+        select distinct paper_id from simplepaper where Publication_Year = #{year}
+    </select>
+
+    <select id="simpleSelect_org" resultType="java.lang.Integer" parameterType="java.lang.String">
+        <bind name="pattern" value="'%' + name + '%'" />
+        select distinct paper_id from simplepaper where upper(Author_Affiliations) like upper(#{pattern})
+    </select>
+
+    <select id="simpleSelect_meeting" resultType="java.lang.Integer" parameterType="java.lang.String">
+        <bind name="pattern" value="'%' + name + '%'" />
+        select distinct paper_id from simplepaper where upper(Publication_Title) like upper(#{pattern})
+    </select>
+
+    <select id="simpleSelect_keyword" resultType="java.lang.Integer" parameterType="java.lang.String">
+        <bind name="pattern" value="'%' + name + '%'" />
+        select distinct paper_id from simplepaper where upper(Author_Keywords) like upper(#{pattern})
+    </select>
+
+</mapper>

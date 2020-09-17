@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/echarts.js"></script>
+    <!-- Bootstrap 核心 JavaScript 文件 -->
+    <script src="/js/bootstrap.js"></script>
+    <!-- 引入js脚本文件 -->
+    <script src="/js/request.js"></script>
+
+    <script src="/js/authorDetail-statistics.js"></script>
+
+</head>
+<body style="background-color: rgba(255,249,209,0.12)">
+<div id="authorDetail-statistics-part1">
+    <p style="text-align: left;font-size: 120%">作者论文</p>
+
+    <span style="text-align: left;color: rgba(255,24,55,0.89);">最高被引</span>
+    <span id="author-citation" style="text-align: right;color: rgba(255,24,55,0.89);float: right"></span>
+    <span style="text-align: right;color: rgba(255,24,55,0.89);float: right">总被引用数：</span>
+    <div id="author-topPapers" style="font-size: 85%"></div>
+    <br>
+</div>
+
+<div id="authorDetail-statistics-part2">
+    <span style="text-align: left;color: rgba(255,24,55,0.89);">发文统计</span> &nbsp;&nbsp;&nbsp;
+    <select id="history-mode">
+        <option value="1">发文年份</option>
+        <option value="2">全部年份</option>
+    </select>
+    <span id="author-paperNum" style="text-align: right;color: rgba(255,24,55,0.89);float: right"></span>
+    <span style="text-align: right;color: rgba(255,24,55,0.89);float: right">总论文数：</span>
+    <div id="author-history" style="font-size: 85%;height:300px;"></div>
+    <br>
+</div>
+
+<div id="authorDetail-statistics-part3">
+    <span style="text-align: left;color: rgba(255,24,55,0.89);">参加会议</span>
+    <span id="author-meetingNum" style="text-align: right;color: rgba(255,24,55,0.89);float: right"></span>
+    <span style="text-align: right;color: rgba(255,24,55,0.89);float: right">总会议数：</span>
+    <div id="author-meeting" style="font-size: 85%;height: 340px"></div>
+    <br><br><br><br>
+</div>
+<br><br>
+</body>
+</html>

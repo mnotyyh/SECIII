@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>fieldDetail</title>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css"/>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/echarts.min_20200718.js"></script>
+    <!-- Bootstrap 核心 JavaScript 文件 -->
+    <script src="/js/bootstrap.js"></script>
+    <!-- 引入js脚本文件 -->
+    <script src="/js/request.js"></script>
+    <script src="/js/fieldDetail.js"></script>
+</head>
+<body>
+<div style="font-size: 120%">
+    <div id="fieldDetail-head" style="text-align:center;background-color: rgba(65,255,64,0.41)">
+        <div id="field-name" style="font-size: 250%;"></div>
+        <div style="font-size: 130%;display: inline;">总论文数:</div>
+        <div style="font-size: 130%;
+        display: inline;margin-right: 10px" id="field-paperNum"></div> &nbsp;&nbsp;&nbsp;&nbsp;
+        <div style="font-size: 130%;display: inline;">总被引用数:</div>
+        <div style="font-size: 130%;
+        display: inline;" id="field-CitationSum"></div>
+    </div>
+
+    <div id="fieldDetail-section1" style="background-color: rgba(218,212,47,0.13)">
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;
+        <span style="text-align:left;font-size: 120%;color: orangered">发文统计</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <select id="history-mode">
+            <option value="1">发文年份</option>
+            <option value="2">全部年份</option>
+        </select>
+        <br>
+        <div id="fieldDetail-history" style="height: 350px;width: 100%"></div>
+    </div>
+
+    <div id="fieldDetail-section2" style="background-color: rgba(218,148,47,0.13)">
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;
+        <span style="text-align:left;font-size: 120%;color: orangered">学术排名</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <p style="text-align: right;color: rgba(255,24,55,0.89);display: inline-block">论文数排名：</p>
+        <p id="fieldDetail-rank-paper" style="text-align: right;color: rgba(255,24,55,0.89);display: inline-block;"></p>
+        <p style="text-align: right;color: rgba(255,24,55,0.89);display: inline-block;width: 15%">被引用数排名：</p>
+        <p id="fieldDetail-rank-citation"
+           style="text-align: right;color: rgba(255,24,55,0.89);display: inline-block"></p>
+
+        <div id="fieldDetail-rank" style="height: 350px;width: 100%"></div>
+    </div>
+
+    <div id="fieldDetail-section3" style="background-color: rgba(218,28,140,0.12)">
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;
+        <span style="text-align:left;font-size: 120%;color: orangered">代表论文</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <span>( 被引用数最多的前10篇论文 )</span>
+        <br><br>
+        <div id="fieldDetail-topPaper" style="height: auto;width: 100%;padding-left: 4%"></div>
+        <br>
+    </div>
+
+    <div id="fieldDetail-section4" style="background-color: rgba(78,55,218,0.12)">
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;
+        <span style="text-align:left;font-size: 120%;color: orangered">代表学者</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <span>( 论文数最多的前10名学者 )</span>
+        <br><br>
+        <div id="fieldDetail-topAuthor" style="height: auto;width: 100%;padding-left: 4%"></div>
+        <br>
+    </div>
+
+    <div id="fieldDetail-section5" style="background-color: rgba(88,150,218,0.12)">
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;
+        <span style="text-align:left;font-size: 120%;color: orangered">代表机构</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <span>( 论文数最多的前10个机构 )</span>
+        <br><br>
+        <div id="fieldDetail-topOrg" style="height: auto;width: 100%;padding-left: 4%"></div>
+        <br><br><br>
+    </div>
+
+</div>
+
+</body>
+</html>

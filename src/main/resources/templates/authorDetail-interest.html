@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/js/jquery.js"></script>
+
+    <script src="/js/echarts.js"></script>
+    <!-- Bootstrap 核心 JavaScript 文件 -->
+    <script src="/js/bootstrap.js"></script>
+    <!-- 引入js脚本文件 -->
+    <script src="/js/request.js"></script>
+    <script src="/js/authorDetail-interest.js"></script>
+
+
+</head>
+<body style="background-color: rgba(255,249,209,0.12)">
+
+<div id="authorDetail-interest-part1">
+    <p style="text-align: left;font-size: 120%">研究兴趣</p>
+    <p style="text-align:left;color: rgba(255,24,55,0.89);">最近方向</p>
+    <table style="width: 100%">
+        <thead>
+        <tr  style="width: 100% ;text-align: left">
+            <th style="width: 33%;"></th>
+            <th style="width: 33%;"></th>
+            <th style="width: 33%;"></th>
+        </tr>
+        </thead>
+
+        <tbody id="author-recentField" style="border: #8ae292">
+    </table>
+    <br>
+</div>
+
+<div id="authorDetail-interest-part2">
+    <p style="text-align:left;color: rgba(255,24,55,0.89);">最新论文</p>
+    <div id="author-recentPaper"></div>
+    <br>
+</div>
+
+<div id="authorDetail-interest-part3">
+    <br>
+    <span style="text-align:left;color: rgba(255,24,55,0.89);">关注领域</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span>( 总发文量最多的20个领域 )</span>
+    <br>
+
+    <table style="width: 100%">
+        <thead>
+        <tr  style="width: 100% ;text-align: left">
+            <th style="width: 50%;"></th>
+            <th style="width: 50%;"></th>
+        </tr>
+        </thead>
+
+        <tbody id="author-field" style="border: #8ae292">
+    </table>
+    <br>
+</div>
+
+<div id="authorDetail-interest-part4">
+    <br>
+    <span style="text-align:left;color: rgba(255,24,55,0.89);">兴趣趋势</span><br>
+    <div id="author-fieldChange" style="font-size: 85% ;height:550px;"></div>
+    <br><br>
+</div>
+</body>
+</html>

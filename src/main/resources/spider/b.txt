@@ -1,0 +1,149 @@
+@techreport{10.1145/2594500,
+author = {Compiled by the ACM Education Board},
+title = {ACM Curricula Recommendations for Related Computer Science Programs in Vocational-Technical Schools, Community and Junior Colleges, and Health Computing},
+year = {1983},
+isbn = {0897911199},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA}
+}
+  
+@article{10.1145/986213.986242,
+author = {Segal, Gerald},
+title = {2004 ACM Elections},
+year = {2004},
+issue_date = {May 2004},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {47},
+number = {5},
+issn = {0001-0782},
+url = {https://doi.org/10.1145/986213.986242},
+doi = {10.1145/986213.986242},
+journal = {Commun. ACM},
+month = may,
+pages = {80–89},
+numpages = {10}
+}
+  
+@techreport{10.1145/2594128,
+author = {Hewett, Thomas T. and Baecker, Ronald and Card, Stuart and Carey, Tom and Gasen, Jean and Mantei, Marilyn and Perlman, Gary and Strong, Gary and Verplank, William},
+title = {ACM SIGCHI Curricula for Human-Computer Interaction},
+year = {1992},
+isbn = {0897914740},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA}
+}
+  
+@proceedings{10.1145/2998181,
+title = {CSCW ’17: Proceedings of the 2017 ACM Conference on Computer Supported Cooperative Work and Social Computing},
+year = {2017},
+isbn = {9781450343350},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+location = {Portland, Oregon, USA}
+}
+  
+@proceedings{10.1145/3359996,
+title = {VRST ’19: 25th ACM Symposium on Virtual Reality Software and Technology},
+year = {2019},
+isbn = {9781450370011},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+location = {Parramatta, NSW, Australia}
+}
+  
+@article{10.1145/3410977.3410980,
+author = {Riedl, Ren\'{e} and Fischer, Thomas and L\'{e}ger, Pierre-Majorique and Davis, Fred D.},
+title = {A Decade of NeuroIS Research: Progress, Challenges, and Future Directions},
+year = {2020},
+issue_date = {August 2020},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {51},
+number = {3},
+issn = {0095-0033},
+url = {https://doi.org/10.1145/3410977.3410980},
+doi = {10.1145/3410977.3410980},
+journal = {SIGMIS Database},
+month = jul,
+pages = {13–54},
+numpages = {42},
+keywords = {literature review, information systems, brain, neurois, neuroscience}
+}
+  
+@book{10.1145/3233795,
+editor = {Oviatt, Sharon and Schuller, Bj\"{o}rn and Cohen, Philip R. and Sonntag, Daniel and Potamianos, Gerasimos and Kr\"{u}ger, Antonio},
+title = {The Handbook of Multimodal-Multisensor Interfaces: Language Processing, Software, Commercialization, and Emerging Directions - Volume 3},
+year = {2019},
+isbn = {9781970001754},
+publisher = {Association for Computing Machinery and Morgan & Claypool}
+}
+  
+@inproceedings{10.1145/262051.262081,
+author = {Leehane, Tim},
+title = {Level II Technical Support in a Distributed Computing Environment},
+year = {1996},
+isbn = {089791810X},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/262051.262081},
+doi = {10.1145/262051.262081},
+booktitle = {Proceedings of the 24th Annual ACM SIGUCCS Conference on User Services},
+pages = {95–99},
+numpages = {5},
+location = {Chicago, Illinois, USA},
+series = {SIGUCCS ’96}
+}
+  
+@book{10.1145/3107990,
+editor = {Oviatt, Sharon and Schuller, Bj\"{o}rn and Cohen, Philip R. and Sonntag, Daniel and Potamianos, Gerasimos and Kr\"{u}ger, Antonio},
+title = {The Handbook of Multimodal-Multisensor Interfaces: Signal Processing, Architectures, and Detection of Emotion and Cognition - Volume 2},
+year = {2018},
+isbn = {9781970001716},
+publisher = {Association for Computing Machinery and Morgan & Claypool},
+volume = {21}
+}
+  
+@book{10.1145/3368274,
+author = {Halvorson, Michael J.},
+title = {Code Nation: Personal Computing and the Learn to Program Movement in America},
+year = {2020},
+isbn = {9781450377584},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA}
+}
+  
+@inproceedings{10.1145/1103900.1103908,
+author = {Fisher, Brian and Fels, Sidney and MacLean, Karon and Munzner, Tamara and Rensink, Ronald},
+title = {Seeing, Hearing, and Touching: Putting It All Together},
+year = {2004},
+isbn = {9781450378017},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/1103900.1103908},
+doi = {10.1145/1103900.1103908},
+booktitle = {ACM SIGGRAPH 2004 Course Notes},
+pages = {8–es},
+numpages = {173},
+location = {Los Angeles, CA},
+series = {SIGGRAPH ’04}
+}
+  
+@proceedings{10.1145/3308560,
+title = {WWW ’19: Companion Proceedings of The 2019 World Wide Web Conference},
+year = {2019},
+isbn = {9781450366755},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+location = {San Francisco, USA}
+}
+  
+@proceedings{10.1145/2988458,
+title = {SA ’16: SIGGRAPH ASIA 2016 Courses},
+year = {2016},
+isbn = {9781450345385},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+location = {Macau}
+}
+  
